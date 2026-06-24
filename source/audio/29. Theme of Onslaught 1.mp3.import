@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://df2m44m0hk4w8"
+path="res://.godot/imported/29. Theme of Onslaught 1.mp3-666c48a2ce4f20af96725e59b906bf0a.mp3str"
+
+[deps]
+
+source_file="res://audio/29. Theme of Onslaught 1.mp3"
+dest_files=["res://.godot/imported/29. Theme of Onslaught 1.mp3-666c48a2ce4f20af96725e59b906bf0a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

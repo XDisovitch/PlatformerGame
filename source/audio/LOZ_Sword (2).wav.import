@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d1qnrbelhp8jd"
+path="res://.godot/imported/LOZ_Sword (2).wav-62a87520bb257a496a044e248cf8844c.sample"
+
+[deps]
+
+source_file="res://audio/LOZ_Sword (2).wav"
+dest_files=["res://.godot/imported/LOZ_Sword (2).wav-62a87520bb257a496a044e248cf8844c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

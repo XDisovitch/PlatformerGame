@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://tqmyg2mpthnw"]
+
+[ext_resource type="PackedScene" uid="uid://fa8x60v6q7u1" path="res://player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://cr8y1y38f0rr3" path="res://platform.tscn" id="2_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cfefs2whaplho" path="res://spike.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://u0ge7firdnwc" path="res://killzone.tscn" id="4_lquwl"]
+
+[node name="main" type="Node2D" unique_id=476256116]
+position = Vector2(119, 77)
+
+[node name="player" parent="." unique_id=1553366582 instance=ExtResource("1_0xm2m")]
+position = Vector2(3, 10)
+
+[node name="Platform" parent="." unique_id=1942424937 instance=ExtResource("2_1bvp3")]
+position = Vector2(32, 59)
+
+[node name="Spike" parent="." unique_id=2088690342 instance=ExtResource("3_1bvp3")]
+position = Vector2(520, 336)
+
+[node name="Killzone" parent="." unique_id=244562988 instance=ExtResource("4_lquwl")]
+position = Vector2(-49, 620)
+
+[connection signal="body_entered" from="Spike" to="player" method="_on_spike_body_entered"]
+[connection signal="body_entered" from="Killzone" to="player" method="_on_killzone_body_entered"]

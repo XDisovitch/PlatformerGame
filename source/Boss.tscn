@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://cs1yfdbj3cga0"]
+
+[ext_resource type="PackedScene" uid="uid://fa8x60v6q7u1" path="res://player.tscn" id="1_7nydw"]
+[ext_resource type="AudioStream" uid="uid://dpgn85tpqka06" path="res://audio/jump.wav" id="2_6a0v0"]
+[ext_resource type="PackedScene" uid="uid://jabtpwk0h06w" path="res://Floor.tscn" id="2_ihc62"]
+[ext_resource type="PackedScene" uid="uid://cr8y1y38f0rr3" path="res://platform.tscn" id="3_6a0v0"]
+[ext_resource type="AudioStream" uid="uid://c3eqclkdt1gdn" path="res://audio/death.ogg" id="3_8x4hd"]
+[ext_resource type="AudioStream" uid="uid://bceusc64kga8m" path="res://audio/vichit.wav" id="4_ic80l"]
+[ext_resource type="PackedScene" uid="uid://u0ge7firdnwc" path="res://killzone.tscn" id="5_ic80l"]
+[ext_resource type="Texture2D" uid="uid://dnh7j6d3g7dns" path="res://exit.jpg" id="5_ihc62"]
+[ext_resource type="Script" uid="uid://01a1yt6gqcgr" path="res://boss.gd" id="6_7nydw"]
+[ext_resource type="PackedScene" uid="uid://bwlitlkd18qvk" path="res://Projectile.tscn" id="7_ihc62"]
+[ext_resource type="Texture2D" uid="uid://c66ddkicjmyxd" path="res://Boss.jpg" id="10_j13hd"]
+[ext_resource type="Texture2D" uid="uid://c4nb7eewhi1m5" path="res://button.jpg" id="11_mucav"]
+[ext_resource type="AudioStream" uid="uid://df2m44m0hk4w8" path="res://audio/29. Theme of Onslaught 1.mp3" id="12_8io2r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6wp4"]
+size = Vector2(24, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2uyg"]
+size = Vector2(269.5, 500.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgi7q"]
+
+[node name="LVL1" type="Node2D" unique_id=747632182]
+
+[node name="player" parent="." unique_id=1553366582 instance=ExtResource("1_7nydw")]
+position = Vector2(838, 290)
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=57941995]
+stream = ExtResource("2_6a0v0")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="player" unique_id=671889099]
+stream = ExtResource("3_8x4hd")
+
+[node name="RespawnSound" type="AudioStreamPlayer2D" parent="player" unique_id=333479210]
+stream = ExtResource("4_ic80l")
+
+[node name="Floor" parent="." unique_id=1942424937 instance=ExtResource("2_ihc62")]
+
+[node name="Platform" parent="." unique_id=1957438573 instance=ExtResource("3_6a0v0")]
+position = Vector2(803, -98)
+
+[node name="Platform" parent="Platform" unique_id=407232302 instance=ExtResource("3_6a0v0")]
+position = Vector2(61, 0)
+
+[node name="Platform" parent="Platform/Platform" unique_id=1345786129 instance=ExtResource("3_6a0v0")]
+position = Vector2(-721, -27)
+
+[node name="Platform" parent="Platform/Platform/Platform" unique_id=2986185 instance=ExtResource("3_6a0v0")]
+position = Vector2(64, -1)
+
+[node name="Platform" parent="Platform/Platform/Platform/Platform" unique_id=827939147 instance=ExtResource("3_6a0v0")]
+position = Vector2(162, -4)
+
+[node name="Platform" parent="Platform/Platform/Platform/Platform/Platform" unique_id=857634615 instance=ExtResource("3_6a0v0")]
+position = Vector2(63, 0)
+
+[node name="Platform" parent="Platform/Platform/Platform/Platform/Platform/Platform" unique_id=1782476211 instance=ExtResource("3_6a0v0")]
+position = Vector2(153, 226)
+
+[node name="Platform" parent="Platform/Platform/Platform/Platform/Platform/Platform/Platform" unique_id=933359036 instance=ExtResource("3_6a0v0")]
+position = Vector2(-94, -168)
+
+[node name="Killzone" parent="." unique_id=244562988 instance=ExtResource("5_ic80l")]
+position = Vector2(15, 661)
+
+[node name="Exit" type="Node2D" parent="." unique_id=1611861562]
+position = Vector2(-945, -16)
+
+[node name="ExitTrigger Final" type="Area2D" parent="Exit" unique_id=1134645326]
+position = Vector2(1119, 549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/ExitTrigger Final" unique_id=2010125023]
+position = Vector2(-26, 17)
+shape = SubResource("RectangleShape2D_t6wp4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=1587286340]
+position = Vector2(1108.3696, 567.68066)
+scale = Vector2(0.054898117, 0.05883939)
+texture = ExtResource("5_ihc62")
+
+[node name="Boss" type="Node2D" parent="." unique_id=403137629]
+position = Vector2(-845, -9)
+script = ExtResource("6_7nydw")
+
+[node name="Area2D" type="Area2D" parent="Boss" unique_id=878033186]
+position = Vector2(897, 303)
+
+[node name="Sprite2D" type="Sprite2D" parent="Boss/Area2D" unique_id=72244062]
+position = Vector2(128, 9.481445)
+scale = Vector2(0.6997977, 1.0186921)
+texture = ExtResource("10_j13hd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D" unique_id=870395009]
+position = Vector2(124, 25)
+shape = SubResource("RectangleShape2D_d2uyg")
+
+[node name="Timer" type="Timer" parent="Boss" unique_id=1659485552]
+autostart = true
+
+[node name="key1" type="Area2D" parent="." unique_id=1021632804]
+position = Vector2(241, -175)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="key1" unique_id=759866842]
+position = Vector2(187, 320)
+shape = SubResource("RectangleShape2D_bgi7q")
+
+[node name="Sprite2D" type="Sprite2D" parent="key1/CollisionShape2D" unique_id=1559450236]
+position = Vector2(-0.12842083, -0.26707935)
+scale = Vector2(0.041757688, 0.036521208)
+texture = ExtResource("11_mucav")
+
+[node name="projectile" parent="." unique_id=1587954554 instance=ExtResource("7_ihc62")]
+position = Vector2(-150, -510)
+
+[node name="LVL music" type="AudioStreamPlayer2D" parent="." unique_id=614254393]
+stream = ExtResource("12_8io2r")
+autoplay = true
+parameters/looping = true
+
+[node name="Label" type="Label" parent="." unique_id=851429841]
+modulate = Color(0, 0, 0, 1)
+offset_left = 962.0
+offset_top = 149.0
+offset_right = 1143.0
+offset_bottom = 172.0
+text = "Press red button to win"
+
+[connection signal="body_entered" from="Killzone" to="player" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="Exit/ExitTrigger Final" to="player" method="_on_exit_trigger_final_body_entered"]
+[connection signal="body_entered" from="Boss/Area2D" to="player" method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Boss/Timer" to="Boss" method="_on_timer_timeout"]
+[connection signal="body_entered" from="key1" to="player" method="_on_key_1_body_entered"]

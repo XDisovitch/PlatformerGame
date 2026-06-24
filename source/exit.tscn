@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bug00d4qf125n"]
+
+[ext_resource type="Texture2D" uid="uid://dnh7j6d3g7dns" path="res://exit.jpg" id="1_6sfst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6wp4"]
+size = Vector2(28, 24)
+
+[node name="Exit" type="Node2D" unique_id=1932732962]
+
+[node name="exit_trigger" type="Area2D" parent="." unique_id=1727234594]
+position = Vector2(1105, 534)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_trigger" unique_id=303585452]
+position = Vector2(30, 29)
+shape = SubResource("RectangleShape2D_t6wp4")
+
+[node name="Sprite2D" type="Sprite2D" parent="exit_trigger" unique_id=1035314053]
+position = Vector2(29.978098, 28.887676)
+scale = Vector2(0.0526155, 0.04460684)
+texture = ExtResource("1_6sfst")

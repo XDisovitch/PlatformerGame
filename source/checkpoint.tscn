@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b2a2utc6nxuin"]
+
+[ext_resource type="Texture2D" uid="uid://dq4b5nwaqi42o" path="res://save.jpg" id="1_luqgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bcbm8"]
+size = Vector2(38, 40.5)
+
+[node name="checkpoint" type="Area2D" unique_id=1788147926]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1094509441]
+position = Vector2(28, 26.75)
+shape = SubResource("RectangleShape2D_bcbm8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=26864809]
+position = Vector2(27.33032, 26.991457)
+scale = Vector2(0.07380743, 0.075014845)
+texture = ExtResource("1_luqgl")

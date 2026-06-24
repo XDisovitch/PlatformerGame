@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dyn7byaug816q"]
+
+[ext_resource type="PackedScene" uid="uid://fa8x60v6q7u1" path="res://player.tscn" id="1_rno80"]
+[ext_resource type="AudioStream" uid="uid://dpgn85tpqka06" path="res://audio/jump.wav" id="2_urlp7"]
+[ext_resource type="PackedScene" uid="uid://cr8y1y38f0rr3" path="res://platform.tscn" id="3_dc44f"]
+[ext_resource type="Texture2D" uid="uid://dnh7j6d3g7dns" path="res://exit.jpg" id="3_dnxd7"]
+[ext_resource type="AudioStream" uid="uid://c3eqclkdt1gdn" path="res://audio/death.ogg" id="3_rno80"]
+[ext_resource type="AudioStream" uid="uid://bceusc64kga8m" path="res://audio/vichit.wav" id="4_31vo8"]
+[ext_resource type="PackedScene" uid="uid://r7csdcjiap8u" path="res://Normalspike.tscn" id="4_sbval"]
+[ext_resource type="AudioStream" uid="uid://co5a74reodhru" path="res://audio/21. Continue.mp3" id="5_dc44f"]
+[ext_resource type="PackedScene" uid="uid://u0ge7firdnwc" path="res://killzone.tscn" id="5_islhk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6wp4"]
+size = Vector2(61, 46)
+
+[node name="LVL1" type="Node2D" unique_id=747632182]
+
+[node name="player" parent="." unique_id=1553366582 instance=ExtResource("1_rno80")]
+position = Vector2(-155, -210)
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="player" unique_id=1493739083]
+stream = ExtResource("2_urlp7")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="player" unique_id=914542420]
+stream = ExtResource("3_rno80")
+
+[node name="RespawnSound" type="AudioStreamPlayer2D" parent="player" unique_id=1728908687]
+stream = ExtResource("4_31vo8")
+
+[node name="LVL music" type="AudioStreamPlayer2D" parent="player/RespawnSound" unique_id=44984104]
+stream = ExtResource("5_dc44f")
+autoplay = true
+parameters/looping = true
+
+[node name="Killzone" parent="." unique_id=244562988 instance=ExtResource("5_islhk")]
+position = Vector2(15, 661)
+
+[node name="Exit" type="Node2D" parent="." unique_id=1611861562]
+position = Vector2(-32, -389)
+
+[node name="ExitTrigger boss" type="Area2D" parent="Exit" unique_id=1134645326]
+position = Vector2(1119, 549)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit/ExitTrigger boss" unique_id=2010125023]
+position = Vector2(-8.5, 15)
+shape = SubResource("RectangleShape2D_t6wp4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Exit" unique_id=1587286340]
+position = Vector2(1111.3071, 564.9307)
+scale = Vector2(0.12267486, 0.10105334)
+texture = ExtResource("3_dnxd7")
+
+[node name="Platform" parent="." unique_id=1942424937 instance=ExtResource("3_dc44f")]
+
+[node name="Platform" parent="Platform" unique_id=1602868402 instance=ExtResource("3_dc44f")]
+position = Vector2(269, -125)
+
+[node name="Platform" parent="Platform/Platform" unique_id=1248877166 instance=ExtResource("3_dc44f")]
+position = Vector2(337, 217)
+
+[node name="Platform" parent="Platform/Platform/Platform" unique_id=1061168804 instance=ExtResource("3_dc44f")]
+position = Vector2(219, -175)
+
+[node name="Platform" parent="Platform/Platform/Platform/Platform" unique_id=1415844604 instance=ExtResource("3_dc44f")]
+position = Vector2(-583, 225)
+
+[node name="trap" parent="." unique_id=2088690342 instance=ExtResource("4_sbval")]
+visible = false
+position = Vector2(330, -119)
+
+[node name="spike" parent="." unique_id=1009768250 instance=ExtResource("4_sbval")]
+position = Vector2(313, 150)
+
+[connection signal="body_entered" from="Killzone" to="player" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="Exit/ExitTrigger boss" to="player" method="_on_exit_trigger_boss_body_entered"]
+[connection signal="body_entered" from="trap" to="player" method="_on_trap_body_entered"]
+[connection signal="body_entered" from="spike" to="player" method="_on_spike_body_entered"]
